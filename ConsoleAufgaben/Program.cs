@@ -77,7 +77,7 @@ namespace Console_Aufgaben
 
         static void ConsoleRechner()
         {
-            Console.WriteLine("1: ConsoleRechner");
+            Console.WriteLine("ConsoleRechner");
             Console.WriteLine();
 
             string[] allowedOpeartors = ["+", "-", "*", "/",];
