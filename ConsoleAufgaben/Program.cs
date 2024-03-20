@@ -23,6 +23,7 @@ namespace Console_Aufgaben
                 Console.WriteLine("9: ConsoleZufallSumme");
                 Console.WriteLine("10: consoleBunteZufallsZahlen");
                 Console.WriteLine("11: ConsoleZahlenraten");
+                Console.WriteLine("12: ConsoleArrayMinMaxSumme");
                 Console.WriteLine("Type exit to close the app");
 
                 string input = Console.ReadLine();
@@ -61,6 +62,9 @@ namespace Console_Aufgaben
                         break;
                     case "11":
                         ConsoleZahlenraten();
+                        break;
+                    case "12":
+                        ConsoleArrayMinMaxSumme();
                         break;
                     case "exit":
                         System.Environment.Exit(0);
@@ -481,6 +485,47 @@ namespace Console_Aufgaben
 
 
         }
+
+        static void ConsoleArrayMinMaxSumme()
+        {
+            Console.WriteLine("ConsoleArrayMinMaxSumme");
+            Console.WriteLine();
+
+            Console.Write("Bitte geben Sie die Länge des Array an (1..): ");
+
+            string strArrayLenght = Console.ReadLine();
+            int arrayLenght = Convert.ToInt32(strArrayLenght);
+
+            Random r = new Random();
+
+            Console.WriteLine("Werte im Array:");
+
+            int[] numbersArray = new int[arrayLenght];
+
+            for (int i = 0; i < arrayLenght; i++)
+            {
+                int randomNumber = r.Next(100);
+                numbersArray[i] = randomNumber;
+                Console.Write(randomNumber + " ");
+            }
+
+            int min = numbersArray.Min();
+            int max = numbersArray.Max();
+            double avg = numbersArray.Average();
+            int sum = numbersArray.Sum();
+
+
+            Console.WriteLine();
+            Console.WriteLine($"Summe der Werte: {sum}");
+            Console.WriteLine($"Mittelwert: {avg:N2}");
+            Console.WriteLine($"Minimum: {min}");
+            Console.WriteLine($"Maximum: {max}");
+
+            Close(ConsoleArrayMinMaxSumme);
+
+        }
+
+
 
         static void Close(Action method)
         {
